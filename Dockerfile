@@ -11,6 +11,7 @@ RUN apk --no-cache add \
         curl \
         openvpn \
         tinyproxy \
+        bash \
 # Bring in gettext so we can get `envsubst`, then throw
 # the rest away. To do this, we need to install `gettext`
 # then move `envsubst` out of the way so `gettext` can
