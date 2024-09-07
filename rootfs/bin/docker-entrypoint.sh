@@ -23,11 +23,6 @@ shutdown() {
 }
 
 
-mkdir -p /dev/net
-echo "Create /dev/net/tun device"
-if [ ! -c /dev/net/tun ]; then
-    mknod /dev/net/tun c 10 200
-fi
 
 echo "Starting startup scripts in /docker-entrypoint-init.d ..."
 for script in $(find /docker-entrypoint-init.d/ -executable -type f | sort); do
