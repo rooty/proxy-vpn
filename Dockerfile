@@ -1,3 +1,7 @@
+# syntax=docker/dockerfile:1
+
+LABEL MAINTAINER Vitaliy Mikhnevych blackrooty@gmail.com
+
 #FROM alpine:latest
 FROM alpine:3.20.2
 
