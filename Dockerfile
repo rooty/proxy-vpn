@@ -32,7 +32,7 @@ RUN apk --no-cache add \
 COPY --chown=nobody rootfs/ /
 
 # Switch to use a non-root user from here on
-USER nobody
+#USER nobody
 
 # Add application
 WORKDIR /etc/openvpn
