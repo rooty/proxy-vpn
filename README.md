@@ -3,12 +3,14 @@
 
 Для запуска OpenVPN необходимо подготовить 2 файла
 - auth в котором сохранены login/password 
+
 пример password file
 ```
 login
 pasword
 ```
 - и файл подключения к удаленному серверу VPN
+
 пример client.ovpn file
 ```
 client
@@ -54,6 +56,7 @@ proto udp
 
 port 1194
 ```
+
 Пример docker-compose.yml файла
 ```yaml
 services:
