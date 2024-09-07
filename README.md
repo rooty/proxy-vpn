@@ -1,11 +1,15 @@
 # proxy-vpn
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/rooty/proxy-vpn/docker-image.yml)
+
 Для запуска OpenVPN необходимо подготовить 2 файла
 - auth в котором сохранены login/password 
+пример password file
 ```
 login
 pasword
 ```
 - и файл подключения к удаленному серверу VPN
+пример client.ovpn file
 ```
 client
 dev tun
@@ -69,6 +73,5 @@ services:
     networks:
          - vpn-net
 ```
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/rooty/proxy-vpn/docker-image.yml)
 
 
