@@ -1,0 +1,16 @@
+services:
+  proxy-de:
+    image: ghcr.io/rooty/proxy-vpn:latest
+    restart: always
+    privileged: true
+    devices:
+      - /dev/net/tun
+    dns:
+      - 8.8.8.8
+    volumes:
+        - '/path/to/file.ovpn':/etc/openvpn/client.ovpn:ro
+        - '/path/to/file.auth':/etc/openvpn/auth:ro
+    ports:
+       - 127.0.0.1:8888:8888
+    networks:
+         - vpn-net
