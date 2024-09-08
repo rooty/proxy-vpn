@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
-LABEL org.opencontainers.image.source=https://github.com/rooty/proxy-vpn
-LABEL org.opencontainers.image.description="OpenVPN+Proxy"
-LABEL org.opencontainers.image.licenses=MIT
+#LABEL org.opencontainers.image.source="https://github.com/rooty/proxy-vpn"
+#LABEL org.opencontainers.image.description="OpenVPN+Proxy"
+#LABEL org.opencontainers.image.licenses=MIT
 
 #LABEL MAINTAINER Vitaliy Mikhnevych blackrooty@gmail.com
 
@@ -35,7 +35,7 @@ RUN apk --no-cache add \
     && rm -rf /var/cache/apk/* \
 # Make sure files/folders needed by the processes are accessable when they run under the nobody user
     && chown -R nobody.nobody /run 
-RUN wget https://github.com/SenseUnit/dumbproxy/releases/download/v1.12.0/dumbproxy.linux-amd64  -O /usr/local/bin/dumbproxy && chmod +x /usr/local/bin/dumbproxy 
+RUN wget -q https://github.com/SenseUnit/dumbproxy/releases/download/v1.12.0/dumbproxy.linux-amd64  -O /usr/local/bin/dumbproxy && chmod +x /usr/local/bin/dumbproxy 
 # Add configuration files
 COPY --chown=nobody rootfs/ /
 
