@@ -1,15 +1,24 @@
 # proxy-vpn
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/rooty/proxy-vpn/docker-image.yml)
 
-Для запуска OpenVPN необходимо подготовить 2 файла
-- auth в котором сохранены login/password 
+##Features
 
-пример password file
+Supports CONNECT method and forwarding of HTTPS connections
+Supports TLS operation mode (HTTP(S) proxy over TLS)
+Supports client authentication with client TLS certificates
+Supports HTTP/2
+
+## Запуск
+Для запуска OpenVPN необходимо подготовить 2 файла
+- файл с login/password: auth
+- файл подключения к удаленному серверу VPN: client.ovpn
+
+
+пример auth file
 ```
 login
 pasword
 ```
-- и файл подключения к удаленному серверу VPN
 
 пример client.ovpn file
 ```
@@ -57,10 +66,10 @@ proto udp
 port 1194
 ```
 
-Пример docker-compose.yml файла
+Пример compose.yaml файла
 ```yaml
 services:
-  proxy-de:
+  proxy:
     image: ghcr.io/rooty/proxy-vpn:latest
     restart: always
     privileged: true

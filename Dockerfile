@@ -1,4 +1,7 @@
 # syntax=docker/dockerfile:1
+LABEL org.opencontainers.image.source=https://github.com/rooty/proxy-vpn
+LABEL org.opencontainers.image.description="OpenVPN+Proxy"
+LABEL org.opencontainers.image.licenses=MIT
 
 #LABEL MAINTAINER Vitaliy Mikhnevych blackrooty@gmail.com
 
