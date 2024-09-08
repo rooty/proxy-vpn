@@ -3,4 +3,3 @@
 # pipe stderr to stdout and run nginx omiting ENV vars to avoid security leaks
 exec 2>&1
 exec env - PATH=$PATH /usr/local/bin/dumbproxy -bind-address 0.0.0.0:8888
-#/usr/bin/tinyproxy -d -c /etc/tinyproxy/tinyproxy.conf
