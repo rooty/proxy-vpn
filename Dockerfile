@@ -1,12 +1,10 @@
 # syntax=docker/dockerfile:1
-#LABEL org.opencontainers.image.source="https://github.com/rooty/proxy-vpn"
-#LABEL org.opencontainers.image.description="OpenVPN+Proxy"
-#LABEL org.opencontainers.image.licenses=MIT
+FROM alpine:latest
+#FROM alpine:3.20.2
 
-#LABEL MAINTAINER Vitaliy Mikhnevych blackrooty@gmail.com
-
-#FROM alpine:latest
-FROM alpine:3.20.2
+LABEL org.opencontainers.image.source="https://github.com/rooty/proxy-vpn"
+LABEL org.opencontainers.image.description="OpenVPN+Proxy"
+LABEL org.opencontainers.image.licenses=MIT
 
 # Install packages
 RUN apk --no-cache add \
