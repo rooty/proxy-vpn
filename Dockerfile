@@ -32,7 +32,7 @@ RUN apk --no-cache add \
     && rm -rf /var/cache/apk/* \
 # Make sure files/folders needed by the processes are accessable when they run under the nobody user
     && chown -R nobody.nobody /run 
-RUN curl -qs  https://github.com/SenseUnit/dumbproxy/releases/download/v1.12.0/dumbproxy.linux-amd64  > /usr/local/bin/dumbproxy && chmod +x /usr/local/bin/dumbproxy 
+RUN curl -L  -qs  https://github.com/SenseUnit/dumbproxy/releases/download/v1.12.0/dumbproxy.linux-amd64 --output  /usr/local/bin/dumbproxy && chmod +x /usr/local/bin/dumbproxy 
 
 # Add configuration files
 COPY --chown=nobody rootfs/ /
