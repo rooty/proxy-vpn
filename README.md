@@ -81,6 +81,11 @@ services:
         - '/path/to/file.auth':/etc/openvpn/auth:ro
     ports:
        - 127.0.0.1:8888:8888
+    healthcheck:
+      test: ["CMD", "check"]
+      interval: 2s
+      timeout: 60s
+      retries: 20   
     networks:
          - vpn-net
 ```
