@@ -1,0 +1,23 @@
+services:
+  proxy-de:
+    image: ghcr.io/rooty/proxy-vpn:latest
+    restart: always
+    privileged: true
+    devices:
+      - /dev/net/tun
+    dns:
+      - 8.8.8.8
+    volumes:
+        - /path/to/file.ovpn:/etc/openvpn/client.ovpn:ro
+        - /path/to/file.auth:/etc/openvpn/auth:ro
+    ports:
+       - 8888:8888
+    environment:
+      - COUNTRY="EN"
+    healthcheck:
+      test: ["CMD", "check"]
+      interval: 2s
+      timeout: 60s
+      retries: 20   
+    networks:
+         - vpn-net
