@@ -13,7 +13,8 @@ services:
     ports:
        - 8888:8888
     environment:
-      - COUNTRY="EN"
+      # country code in lower case
+      - COUNTRY="en"
     healthcheck:
       test: ["CMD", "check"]
       interval: 2s
