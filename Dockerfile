@@ -1,6 +1,9 @@
 # syntax=docker/dockerfile:1
 FROM alpine:latest
 
+ENV PROXY_AUTH=$PROXY_AUTH
+ENV COUNTRY=$COUNTRY
+
 LABEL org.opencontainers.image.source="https://github.com/rooty/proxy-vpn"
 LABEL org.opencontainers.image.description="OpenVPN+Proxy"
 LABEL org.opencontainers.image.licenses=MIT

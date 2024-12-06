@@ -23,6 +23,6 @@ then
 
 fi
 killall -9 dumbproxy
-/usr/local/bin/dumbproxy $PROXY_AUTH  -ip-hints "$ifconfig_local"  -bind-address 0.0.0.0:8888 &
+/usr/local/bin/dumbproxy ${PROXY_AUTH}  -ip-hints "$ifconfig_local"  -bind-address 0.0.0.0:8888 &
 
 exit 0
