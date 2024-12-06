@@ -30,9 +30,10 @@ RUN apk --no-cache add \
     && apk del .gettext \
     && mv /tmp/envsubst /usr/local/bin/ \
 # Remove alpine cache
-    && rm -rf /var/cache/apk/* \
+    && rm -rf /var/cache/apk/* 
+    # \
 # Make sure files/folders needed by the processes are accessable when they run under the nobody user
-    && chown -R nobody.nobody /run 
+    # && chown -R nobody.nobody /run 
 RUN curl -L  -qs  https://github.com/SenseUnit/dumbproxy/releases/download/v1.12.0/dumbproxy.linux-amd64 --output  /usr/local/bin/dumbproxy && chmod +x /usr/local/bin/dumbproxy 
 
 # Add configuration files
