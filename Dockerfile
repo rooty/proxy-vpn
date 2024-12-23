@@ -1,12 +1,13 @@
 # syntax=docker/dockerfile:1
 FROM alpine:latest
 
-ENV PROXY_AUTH=$PROXY_AUTH
-ENV COUNTRY=$COUNTRY
-
 LABEL org.opencontainers.image.source="https://github.com/rooty/proxy-vpn"
 LABEL org.opencontainers.image.description="OpenVPN+Proxy"
 LABEL org.opencontainers.image.licenses=MIT
+
+ENV PROXY_AUTH=$PROXY_AUTH
+ENV COUNTRY=$COUNTRY
+
 
 # Install packages
 RUN apk --no-cache add \
@@ -42,7 +43,6 @@ RUN curl -L  -qs  https://github.com/SenseUnit/dumbproxy/releases/download/v1.12
 # Add configuration files
 COPY --chown=nobody rootfs/ /
 
-
 # Add application
 WORKDIR /etc/openvpn
 
@@ -52,7 +52,6 @@ EXPOSE 8888
 # Let runit start nginx & php-fpm
 # Ensure /bin/docker-entrypoint.sh is always executed
 ENTRYPOINT ["/bin/docker-entrypoint.sh"]
-
 
 # Configure a healthcheck to validate that everything is up&running
 #HEALTHCHECK --timeout=10s CMD curl --silent --fail http://127.0.0.1:8080/fpm-ping || exit 1
