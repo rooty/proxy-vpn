@@ -22,7 +22,7 @@ then
   ip rule add table $country from $ifconfig_local
 
 fi
-#killall -9 dumbproxy
-#/usr/local/bin/dumbproxy ${CMD_OPTS}  -ip-hints "$ifconfig_local"  -bind-address 0.0.0.0:8888 &
+killall -9 dumbproxy
+/usr/local/bin/dumbproxy ${CMD_OPTS}  -ip-hints "$ifconfig_local"  -bind-address 0.0.0.0:8888 &
 
 exit 0
