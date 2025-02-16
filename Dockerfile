@@ -5,8 +5,8 @@ LABEL org.opencontainers.image.source="https://github.com/rooty/proxy-vpn"
 LABEL org.opencontainers.image.description="OpenVPN+Proxy"
 LABEL org.opencontainers.image.licenses=MIT
 
-ENV PROXY_AUTH=$PROXY_AUTH
-ENV COUNTRY=$COUNTRY
+#ENV PROXY_AUTH=$PROXY_AUTH
+#ENV COUNTRY=$COUNTRY
 
 
 # Install packages
@@ -38,7 +38,7 @@ RUN apk --no-cache add \
     # \
 # Make sure files/folders needed by the processes are accessable when they run under the nobody user
     # && chown -R nobody.nobody /run 
-RUN curl -L  -qs  https://github.com/SenseUnit/dumbproxy/releases/download/v1.12.0/dumbproxy.linux-amd64 --output  /usr/local/bin/dumbproxy && chmod +x /usr/local/bin/dumbproxy 
+RUN curl -L  -qs  https://github.com/SenseUnit/dumbproxy/releases/latest/download/dumbproxy.linux-amd64 --output  /usr/local/bin/dumbproxy && chmod +x /usr/local/bin/dumbproxy 
 
 # Add configuration files
 COPY --chown=nobody rootfs/ /
